@@ -55,6 +55,7 @@ public:
     cout << "In Remove" << endl;
 
     for (int i = 0; i < (tasks.size()); i++) {
+			cout << "Here" << _task << endl;
       if(tasks[i] == _task) {
         tasks.erase(tasks.begin() + i);
       }
@@ -67,13 +68,17 @@ public:
   
   virtual void printTodoList()
   {
-    cout << "In List" << endl;
+    cout << "All tasks" << endl;
+		for (int i = 0; i < (tasks.size()); i++) {
+			cout << tasks[i] << endl;
+      
+    }
   }    
   /*    
   *   Prints out all items of a todo list with a particular due date (specified by _duedate)    
   */    
   
-  virtual void printDaysTasks(string _date)
+  virtual void printDaysTasks(string _day)
   {
     cout << "In daystasks" << endl;
   }

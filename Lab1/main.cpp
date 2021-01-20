@@ -33,13 +33,22 @@ int main(int argc, char *argv[])
 
   }
 
-  //For the  option
-	if(firstarg.compare("remove") == 0) {
-    cout << "Doing a remove" << endl;
-    string task = argv[2];
+  //For the print all tasks option
+	if(firstarg.compare("printList") == 0) {
+    cout << "Printing all tasks" << endl;
 
-    cout << " task " << task << endl;
-    mylist.remove(task);
+    mylist.printTodoList();
 
   }
+
+  //For the print all tasks for a certain day option
+	if(firstarg.compare("printDay") == 0) {
+    string day = argv[2];
+    cout << "Printing tasks for " << day << endl;
+
+    cout << " tasks for " << day << endl;
+    mylist.printDaysTasks(day);
+
+  }
+
 }
