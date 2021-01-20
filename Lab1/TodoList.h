@@ -5,6 +5,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <sstream>
 #include "TodoListInterface.h"
 
 using namespace std;
@@ -52,11 +53,12 @@ public:
   
   virtual int remove(string _task) 
   {
-    cout << "In Remove" << endl;
-
+		
+    cout << "Here " << _task << endl;
     for (int i = 0; i < (tasks.size()); i++) {
-			cout << "Here" << _task << endl;
-      if(tasks[i] == _task) {
+			string toFindTask = tasks.at(i);
+			cout << "tasks[" << i << "] " << tasks[i] << endl;
+      if(toFindTask.find(_task) != string::npos) {
         tasks.erase(tasks.begin() + i);
       }
     }
@@ -81,6 +83,28 @@ public:
   virtual void printDaysTasks(string _day)
   {
     cout << "In daystasks" << endl;
+    int stringLength = _day.size(); //Get length of input day
+
+    
+		cout << _day << endl;
+
+		for (int i = 0; i < (tasks.size()); i++) {
+			
+			string toFindTask = tasks.at(i);
+      
+			if(!toFindTask.find(_day)) {
+				string dayTasks = tasks[i];
+				dayTasks.erase(dayTasks.begin(), dayTasks.begin() + stringLength);
+				
+				cout << dayTasks << endl;
+			}
+
+      
+      
+    }
+  
+	cout << "FINISHED" << endl;
+
   }
 
 };

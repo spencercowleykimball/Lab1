@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     string day = argv[2];
     cout << "Printing tasks for " << day << endl;
 
-    cout << " tasks for " << day << endl;
+    cout << " tasks for " << day << ": " << endl;
     mylist.printDaysTasks(day);
 
   }
