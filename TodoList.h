@@ -42,8 +42,11 @@ public:
 	*   Adds an item to the todo list with the data specified by the string "_duedate" and the task specified by "_task"    
 	*/ 
   virtual void add(string _duedate, string _task) {
-    cout << "In add " << _duedate<< " " << _task << endl;
+		cout << endl; //In order to add whitespace to help readability due to other constructor and destructor output
+		cout << "Here is where my add output is: " << endl;
+    cout << "In add " << _duedate << " " << _task << endl;
     tasks.push_back(_duedate+" "+_task);
+		cout << endl;
   }
   
   /*    
@@ -54,16 +57,18 @@ public:
   virtual int remove(string _task) 
   {
 		int removed = 0;
-    cout << "Here " << _task << endl;
+		cout << endl;
+    cout << "Here is where my remove output is: " << endl;
+		cout << "Removing: " << _task << endl;
     for (int i = 0; i < (tasks.size()); i++) {
 			string toFindTask = tasks.at(i);
-			cout << "tasks[" << i << "] " << tasks[i] << endl;
       if(toFindTask.find(_task) != string::npos) {
         tasks.erase(tasks.begin() + i);
 				removed = 1;
       }
     }
 
+		cout << endl;
 		return removed;
   }   
   
@@ -72,7 +77,6 @@ public:
   */    
   virtual void printTodoList()
   {
-    cout << "All tasks" << endl;
 		for (int i = 0; i < (tasks.size()); i++) {
 			cout << tasks.at(i) << endl;
     }
@@ -85,10 +89,7 @@ public:
   */    
   virtual void printDaysTasks(string _duedate)
   {
-    cout << "In daystasks" << endl;
     int stringLength = _duedate.size(); //Get length of input day
-
-		cout << _duedate << endl;
 
 		for (int i = 0; i < (tasks.size()); i++) {
 			
@@ -102,10 +103,7 @@ public:
 			}
     }
 		cout << endl;
-
   }
-
 };
-
 
 #endif
